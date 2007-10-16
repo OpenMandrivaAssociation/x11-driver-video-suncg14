@@ -1,6 +1,6 @@
 Name: x11-driver-video-suncg14
 Version: 1.1.0
-Release: %mkrel 2
+Release: %mkrel 3
 Summary: The X.org driver for sun cg14 Cards
 Group: Development/X11
 URL: http://xorg.freedesktop.org
@@ -20,9 +20,7 @@ The X.org driver for sun cg14 Cards
 %setup -q -n xf86-video-suncg14-%{version}
 
 %build
-%configure2_5x	--x-includes=%{_includedir}\
-		--x-libraries=%{_libdir}
-
+%configure
 %make
 
 %install

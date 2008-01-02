@@ -30,14 +30,6 @@ The X.org driver for sun cg14 Cards
 %prep
 %setup -q -n xf86-video-suncg14-%{version}
 
-%package devel
-Summary: Development files for %{name}
-Group: Development/X11
-License: MIT
-
-%description devel
-Development files for %{name}
-
 %patch1 -p1
 
 %build
@@ -48,11 +40,7 @@ autoreconf -ifs
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-# Create list of dependencies
-x-check-deps.pl
-for deps in *.deps; do
-    install -D -m 644 $deps %{buildroot}/%{_datadir}/X11/mandriva/$deps
-done
+rm -f %{buildroot}/%{_libdir}/xorg/modules/drivers/*.la
 
 %clean
 rm -rf %{buildroot}
@@ -62,8 +50,3 @@ rm -rf %{buildroot}
 %doc COPYING
 %{_libdir}/xorg/modules/drivers/suncg14_drv.so
 %{_mandir}/man4/suncg14.*
-
-%files devel
-%defattr(-,root,root)
-%{_libdir}/xorg/modules/drivers/*.la
-%{_datadir}/X11/mandriva/*.deps

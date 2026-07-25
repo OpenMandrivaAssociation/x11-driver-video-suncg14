@@ -1,7 +1,7 @@
 ExclusiveArch:	sparc sparc64
 Name: x11-driver-video-suncg14
 Version: 1.1.1
-Release: %mkrel 4
+Release: 5
 Summary: X.org driver for sun cg14 Cards
 Group: System/X11
 URL: https://xorg.freedesktop.org
